@@ -1,52 +1,94 @@
-<!DOCTYPE html>
-
+<html>
 <head>
-    <title>小蔡蔡</title>
-    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" />
-    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    <title>tx</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #container {
+            margin: 50px auto;
+            width: 500px;
+            height: 300px;
+            position: relative;
+        }
+        ul {
+            list-style: none;
+            float: left;
+            position: relative;
+            width: 100%;
+            height: 50px;
+        }
+        ul li {
+            float: left;
+            width: 100px;
+            height: 50px;
+            border: 1px solid black;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            text-align: center;
+            font: 18px/50px 楷体;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        #d1, #d2, #d3, #d4 {
+            display: none;
+            border: 1px solid black;
+            border-top: none;
+            padding: 18px;
+            height: 250px;
+            position: relative;
+            top: -1px;
+            clear: both;
+        }
+        #d1 {
+            display: block;
+        }
+        #empty {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            width: 103px;
+        }
+    </style>
 </head>
-
-<body background="zhaopian/d35e47a112ac470a289980af8046f4e.jpg" style="color: rgb(253, 254, 253);">
-    <p>
-    <h1 align="center">人工智能学院举办</h1>
-    </p>
-    <p>
-    <h2 align="center">篮球比赛通知</h2>
-    </p>
-    <p>为丰富学生课余文化生活，促进学生身心建康发展，提高我校签球运动水平，促进和潜校园文化建设，特举行此次篮球比赛，具体比赛事宜通知如下：</p>
-    <ul type="disc">
-        <li>
-            <h3>报名时间及地点</h3>
-        </li>
-        <p>各班级在2025年1月15日（星期五）放学之前将参赛队员的姓名报交体育组，报名表一经提交，不得再进行变更。</p>
-    </ul>
-        <ul type="disc">
-            <li>
-                <h3>比赛时间及地点</h3>
-            </li>
-            <p>2025年1月17日-2025年1月29日，校篮球场。（遇下雨等特殊原因不能比赛，时间另行通知）。</p>
+<body>
+    <div id="container">
+        <ul>
+            <li id="li1" onmouseover="tab(this, 1)">影视</li>
+            <li id="li2" onmouseover="tab(this, 2)">动漫</li>
+            <li id="li3" onmouseover="tab(this, 3)">游戏</li>
+            <li id="li4" onmouseover="tab(this, 4)">体育</li>
+            <li id="empty"></li>
         </ul>
-            <ul type="disc">
-                <li>
-                    <h3>注意事项</h3>
-                </li>
-                </ol>
-                <ol>
-                    <li>
-                        <p>参赛队必需按规定时问到达比赛场地，比赛开始后到场不足五人，则视为自动弃权。</p>
-                    </li>
-                        <li>
-                        <p>要求参赛队把队员的安全、健康放在首位，组织队员进行一定的训练，并组织队员学习有关预防运动损伤的基本常识。</p>
-                    </li>
-            </ul>
-            <ul>
-                <li><h3>竞赛委员会</h3></li>
-                <p>组长：牟灵毅</p>
-                <p>副组长：王建忠、王建明、卜凡花</p>
-                <p>裁判员：赵每然、钟世民、天郑学林、许良、于金波</p>
-            </ul>
-    <p align="right">邵阳工业学院体育组</p>
-            <p align="right">2025年1月</p>
+        <div id="d1">
+            <p>有关影视的内容</p>
+        </div>
+        <div id="d2">
+            <p>有关动漫的内容</p>
+        </div>
+        <div id="d3">
+            <p>有关游戏的内容</p>
+        </div>
+        <div id="d4">
+            <p>有关体育的内容</p>
+        </div>
+    </div>
+
+    <script>
+        function tab(selected, id) {
+            
+            for (var i = 1; i <= 4; i++) {
+                document.getElementById("li" + i).style.border = "1px solid black";
+                document.getElementById("d" + i).style.display = "none";
+            }
+           
+            selected.style.borderBottom = "1px solid white";
+            document.getElementById("d" + id).style.display = "block";
+        }
+    </script>
 </body>
 </html>
